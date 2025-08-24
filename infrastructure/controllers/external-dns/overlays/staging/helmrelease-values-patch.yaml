@@ -2,8 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: external-dns
-  namespace: external-dns
-spec:
+  namespace: flux-system
   values:
     provider: azure
     extraVolumes:
