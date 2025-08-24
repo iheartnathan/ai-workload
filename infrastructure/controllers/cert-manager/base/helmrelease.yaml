@@ -22,6 +22,7 @@ spec:
       remediateLastFailure: true
   driftDetection:
     mode: warn
+  targetNamespace: cert-manager
   # values:
   #   config:
   #     apiVersion: controller.config.cert-manager.io/v1alpha1
