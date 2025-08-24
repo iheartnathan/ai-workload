@@ -2,7 +2,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
-  name: gateway-api
+  name: gateway-api-crds
   namespace: flux-system
 spec:
   interval: 5m0s
@@ -26,5 +26,5 @@ spec:
   timeout: 2m
   sourceRef:
     kind: GitRepository
-    name: gatewayapi-crds
+    name: gateway-api-crds
   path: ./config/crd
