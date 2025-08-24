@@ -5,6 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   values:
+    fullnameOverride: external-dns
     provider: azure
     extraVolumes:
       - name: azure-config-file
@@ -21,6 +22,8 @@ spec:
       - gateway-tlsroute
       - gateway-udproute
     serviceAccount:
+      labels:
+        azure.workload.identity/use: "true"
       create: false
       name: workload-identity-sa
     podLabels:
