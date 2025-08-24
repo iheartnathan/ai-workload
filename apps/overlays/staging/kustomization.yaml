@@ -1,0 +1,31 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base/cafe
+patches:
+  # patch Deployments (replicas, image tag, etc.)
+  - target:
+      kind: Deployment
+      name: coffee
+      namespace: cafe
+    path: coffee-deploy-patch.yaml
+  - target:
+      kind: Deployment
+      name: tea
+      namespace: cafe
+    path: tea-deploy-patch.yaml
+  # patch HTTPRoute hostnames for this env
+  - target:
+      group: gateway.networking.k8s.io
+      version: v1
+      kind: HTTPRoute
+      name: coffee
+      namespace: cafe
+    path: coffee-route-patch.yaml
+  - target:
+      group: gateway.networking.k8s.io
+      version: v1
+      kind: HTTPRoute
+      name: tea
+      namespace: cafe
+    path: tea-route-patch.yaml

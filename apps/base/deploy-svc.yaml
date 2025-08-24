@@ -1,10 +1,15 @@
 ---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cafe
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: coffee
+  namespace: cafe
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: coffee
@@ -15,7 +20,7 @@ spec:
     spec:
       containers:
       - name: coffee
-        image: nginxdemos/nginx-hello:plain-text
+        image: nginxdemos/nginx-hello
         ports:
         - containerPort: 8080
 ---
@@ -23,6 +28,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: coffee
+  namespace: cafe
 spec:
   ports:
   - port: 80
@@ -36,8 +42,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tea
+  namespace: cafe
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: tea
@@ -48,7 +54,7 @@ spec:
     spec:
       containers:
       - name: tea
-        image: nginxdemos/nginx-hello:plain-text
+        image: nginxdemos/nginx-hello
         ports:
         - containerPort: 8080
 ---
@@ -56,6 +62,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: tea
+  namespace: cafe
 spec:
   ports:
   - port: 80
