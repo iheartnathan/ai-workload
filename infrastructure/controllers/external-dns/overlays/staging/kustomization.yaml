@@ -13,4 +13,4 @@ patches:
     target:
       kind: HelmRelease
       name: external-dns
-      namespace: external-dns
+      namespace: flux-system
