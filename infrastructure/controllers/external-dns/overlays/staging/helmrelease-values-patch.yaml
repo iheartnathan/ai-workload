@@ -1,0 +1,31 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: external-dns
+  namespace: external-dns
+spec:
+  values:
+    provider: azure
+    extraVolumes:
+      - name: azure-config-file
+        secret:
+          secretName: external-dns-azure
+    extraVolumeMounts:
+      - name: azure-config-file
+        mountPath: /etc/kubernetes
+        readOnly: true
+    sources:
+      - gateway-httproute
+      - gateway-grpcroute
+      - gateway-tcproute
+      - gateway-tlsroute
+      - gateway-udproute
+    serviceAccount:
+      create: false
+      name: workload-identity-sa
+    podLabels:
+      azure.workload.identity/use: "true"
+    logLevel: debug
+    domainFilters:
+      - testhop.xyz
+    txtOwnerId: external-dns

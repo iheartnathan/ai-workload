@@ -1,0 +1,29 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: cert-manager
+  namespace: flux-system
+spec:
+  interval: 12h
+  chartRef:
+    kind: OCIRepository
+    name: cert-manager
+    namespace: flux-system
+  install:
+    crds: Create
+    remediation:
+      retries: 3
+      remediateLastFailure: true
+  upgrade:
+    crds: CreateReplace
+    remediation:
+      retries: 3
+      remediateLastFailure: true
+  driftDetection:
+    mode: warn
+  # values:
+  #   config:
+  #     apiVersion: controller.config.cert-manager.io/v1alpha1
+  #     kind: ControllerConfiguration
+  #     enableGatewayAPI: true
