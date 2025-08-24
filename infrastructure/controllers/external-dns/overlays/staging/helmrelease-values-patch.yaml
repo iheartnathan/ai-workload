@@ -3,6 +3,7 @@ kind: HelmRelease
 metadata:
   name: external-dns
   namespace: flux-system
+spec:
   values:
     provider: azure
     extraVolumes:
