@@ -11,12 +11,12 @@ spec:
     name: nginx-gateway-fabric
     namespace: flux-system
   install:
-    crds: Skip
+    crds: Create
     remediation:
       retries: 3
       remediateLastFailure: true
   upgrade:
-    crds: Skip
+    crds: CreateReplace
     remediation:
       retries: 3
       remediateLastFailure: true
