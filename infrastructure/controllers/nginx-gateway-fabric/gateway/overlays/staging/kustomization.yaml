@@ -24,4 +24,4 @@ patches:
           allowedRoutes:
             namespaces:
               from: All
-          hostname: "*.testshop.xyz"
+          hostname: "testshop.xyz"
