@@ -8,11 +8,11 @@ spec:
     fullnameOverride: external-dns
     provider: azure
     extraVolumes:
-      - name: azure-config-file
+      - name: azure-config-file-wi
         secret:
           secretName: external-dns-azure
     extraVolumeMounts:
-      - name: azure-config-file
+      - name: azure-config-file-wi
         mountPath: /etc/kubernetes
         readOnly: true
     sources:
