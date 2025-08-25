@@ -1,4 +1,4 @@
 - op: add
   path: /spec/hostnames
   value:
-    - cafe.staging.testhop.xyz
+    - cafe.staging.testshop.xyz
