@@ -12,7 +12,6 @@ spec:
   path: ./infrastructure/controllers/external-dns/overlays/staging
   dependsOn:
     - name: infra-sources
-    - name: external-dns-config
   healthChecks:
     - kind: Deployment
       name: external-dns
