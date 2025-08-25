@@ -19,8 +19,6 @@ spec:
       # - gateway-tlsroute
       # - gateway-udproute
     serviceAccount:
-      annotations: 
-        azure.workload.identity/client-id: 060b62a0-250a-4e4a-a039-e53ea4f461b5
       create: false
       name: workload-identity-sa
     podLabels:
