@@ -9,7 +9,7 @@
 #   sourceRef:
 #     kind: GitRepository
 #     name: flux-system
-#   path: ./infrastructure/controllers/external-dns/overlays/staging/controller
+#   path: ./infrastructure/controllers/external-dns/overlays/staging
 #   dependsOn:
 #     - name: infra-sources
 #     - name: external-dns-config
