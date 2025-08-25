@@ -9,8 +9,6 @@ spec:
   - name: public
     sectionName: https
     namespace: nginx-gateway 
-  hostnames:
-  - "cafe.example.com"
   rules:
   - matches:
     - path:
@@ -31,8 +29,6 @@ spec:
   - name: public
     sectionName: https
     namespace: nginx-gateway 
-  hostnames:
-  - "cafe.example.com"
   rules:
   - matches:
     - path:

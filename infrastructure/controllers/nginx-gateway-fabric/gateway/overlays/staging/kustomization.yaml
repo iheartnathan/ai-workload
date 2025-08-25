@@ -20,8 +20,8 @@ patches:
             mode: Terminate
             certificateRefs:
               - kind: Secret
-                name: wildcard-staging-example-com   
+                name: cert-testhop-xyz   
           allowedRoutes:
             namespaces:
               from: All
-          hostname: "*.testhop.xyz"
+          hostname: "*.testshop.xyz"
