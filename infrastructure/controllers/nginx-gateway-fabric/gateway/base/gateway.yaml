@@ -4,7 +4,7 @@ metadata:
   name: public
   namespace: nginx-gateway     
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-staging
+    cert-manager.io/issuer: letsencrypt-staging
   labels:
     app.kubernetes.io/part-of: platform
 spec:
