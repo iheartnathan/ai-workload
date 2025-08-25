@@ -20,7 +20,7 @@ spec:
       # - gateway-udproute
     serviceAccount:
       annotations:
-        azure.workload.identity/client-id: 060b62a0-250a-4e4a-a039-e53ea4f461b5
+        azure.workload.identity/client-id: "060b62a0-250a-4e4a-a039-e53ea4f461b5"
         azure.workload.identity/use: "true"
     podLabels:
       azure.workload.identity/use: "true"
