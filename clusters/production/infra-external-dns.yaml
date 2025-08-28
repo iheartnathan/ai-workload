@@ -9,7 +9,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./infrastructure/controllers/external-dns/overlays/staging
+  path: ./infrastructure/controllers/external-dns/overlays/production
   dependsOn:
     - name: infra-sources
   healthChecks:
