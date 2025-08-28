@@ -9,19 +9,6 @@ patches:
       kind: Gateway
       name: public
       namespace: nginx-gateway
-    patch: |
-      - op: add
-        path: /spec/listeners/-
-        value:
-          name: https
-          protocol: HTTPS
-          port: 443
-          tls:
-            mode: Terminate
-            certificateRefs:
-              - kind: Secret
-                name: cert-testhop-xyz   
-          allowedRoutes:
-            namespaces:
-              from: All
-          hostname: "testhop.xyz"
+    patch: gateway-patch.yaml
+
+

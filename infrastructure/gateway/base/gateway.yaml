@@ -3,12 +3,9 @@ kind: Gateway
 metadata:
   name: public
   namespace: nginx-gateway     
-  annotations:
-    cert-manager.io/issuer: letsencrypt-staging
   labels:
     app.kubernetes.io/part-of: platform
 spec:
-  gatewayClassName: nginx
   listeners:
     # Keep 80 open so cert-manager HTTP-01 (Gateway API solver) can attach a temp HTTPRoute
     - name: http
