@@ -11,7 +11,7 @@
     name: https
     protocol: HTTPS
     port: 443
-    hostname: testshop.xyz
+    hostname: testhop.xyz
     allowedRoutes:
       namespaces:
         from: All
