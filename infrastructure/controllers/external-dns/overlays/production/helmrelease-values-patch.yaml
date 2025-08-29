@@ -28,3 +28,4 @@ spec:
     domainFilters:
       - testhop.xyz
     txtOwnerId: external-dns
+    txtPrefix: "_external-dns-"
