@@ -1,7 +1,7 @@
 - op: add
   path: /metadata/annotations
   value:
-    cert-manager.io/cluster-issuer: letsencrypt-production
+    cert-manager.io/issuer: letsencrypt-production
 - op: add
   path: /spec/gatewayClassName
   value: nginx
