@@ -8,11 +8,11 @@ patches:
       kind: OCIRepository
       name: cert-manager
       namespace: flux-system
-  - path: external-dns-patch.yaml
-    target:
-      kind: OCIRepository
-      name: external-dns
-      namespace: flux-system
+  # - path: external-dns-patch.yaml
+  #   target:
+  #     kind: OCIRepository
+  #     name: external-dns
+  #     namespace: flux-system
   - path: nginx-gateway-fabric-patch.yaml
     target:
       kind: OCIRepository
