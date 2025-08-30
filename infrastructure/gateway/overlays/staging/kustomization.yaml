@@ -9,4 +9,4 @@ patches:
       kind: Gateway
       name: public
       namespace: nginx-gateway
-    patch: gateway-patch.yaml
+    path: gateway-patch.yaml
