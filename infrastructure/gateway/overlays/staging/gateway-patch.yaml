@@ -1,22 +1,22 @@
-apiVersion: gateway.networking.k8s.io/v1
-kind: Gateway
-metadata:
-  name: public
-  namespace: nginx-gateway
-  annotations:
+- op: add
+  path: /metadata/annotations
+  value:
     cert-manager.io/issuer: letsencrypt-staging
-spec:
-  gatewayClassName: nginx
-  listeners:
-    - name: https                 
-      protocol: HTTPS
-      port: 443
-      hostname: testshop.xyz
-      allowedRoutes:
-        namespaces:
-          from: All
-      tls:
-        mode: Terminate
-        certificateRefs:
-          - kind: Secret
-            name: cert-testshop-xyz
+- op: add
+  path: /spec/gatewayClassName
+  value: nginx
+- op: add
+  path: /spec/listeners/-
+  value:
+    name: https
+    protocol: HTTPS
+    port: 443
+    hostname: staging.testhop.xyz
+    allowedRoutes:
+      namespaces:
+        from: All
+    tls:
+      mode: Terminate
+      certificateRefs:
+        - kind: Secret
+          name: cert-testshop-xyz
