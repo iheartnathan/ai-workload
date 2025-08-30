@@ -12,5 +12,5 @@ spec:
   path: ./infrastructure/controllers/nginx-gateway-fabric/overlays/staging
   dependsOn:
     - name: gateway-api-crds-bootstrap
-    - name: infra-sources
+    - name: infra-sources-oci
 
