@@ -11,7 +11,7 @@ spec:
     name: flux-system
   path: ./infrastructure/controllers/external-dns/overlays/production
   dependsOn:
-    - name: infra-sources
+    - name: infra-sources-helm
   healthChecks:
     - kind: Deployment
       name: external-dns
