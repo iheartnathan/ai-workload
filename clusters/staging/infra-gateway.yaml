@@ -9,7 +9,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./infrastructure/controllers/nginx-gateway-fabric/gateway/overlays/staging
+  path: ./infrastructure/gateway/overlays/staging
   dependsOn:
     - name: nginx-gateway-fabric         
 

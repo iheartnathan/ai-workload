@@ -5,11 +5,15 @@ metadata:
   name: external-dns
   namespace: flux-system
 spec:
+  chart:
+    spec:
+      chart: external-dns
+      version: "*"  # Replace with the desired version
+      sourceRef:
+        kind: HelmRepository
+        name: external-dns
+        namespace: flux-system 
   interval: 12h
-  chartRef:
-    kind: OCIRepository
-    name: external-dns
-    namespace: flux-system
   install:
     crds: Create
     remediation:

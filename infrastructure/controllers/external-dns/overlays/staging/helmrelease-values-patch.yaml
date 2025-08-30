@@ -4,6 +4,9 @@ metadata:
   name: external-dns
   namespace: flux-system
 spec:
+  chart:
+    spec:
+      version: 1.16.0
   values:
     fullnameOverride: external-dns
     provider: azure
@@ -26,5 +29,5 @@ spec:
       azure.workload.identity/use: "true"
     logLevel: debug
     domainFilters:
-      - testhop.xyz
-    txtOwnerId: external-dns
+      - staging.testhop.xyz
+    txtOwnerId: external-dns-staging
