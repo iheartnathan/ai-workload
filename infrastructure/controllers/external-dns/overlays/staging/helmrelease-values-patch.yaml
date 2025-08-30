@@ -10,11 +10,11 @@ spec:
   values:
     fullnameOverride: external-dns
     provider: azure
-    azure:
-      useWorkloadIdentityExtension: true
-      tenantId: 5bd9cf2d-0241-4846-8d13-6ce59c689cc5
-      subscriptionId: 2329876a-dd1e-4d17-9d7e-6504024dd500
-      resourceGroup: dns-rg-30125
+    # azure:
+    #   useWorkloadIdentityExtension: true
+    #   tenantId: 5bd9cf2d-0241-4846-8d13-6ce59c689cc5
+    #   subscriptionId: 2329876a-dd1e-4d17-9d7e-6504024dd500
+    #   resourceGroup: dns-rg-30125
     sources:
       - gateway-httproute
       - gateway-grpcroute
@@ -31,8 +31,11 @@ spec:
     domainFilters:
       - staging.testhop.xyz
     txtOwnerId: external-dns-staging
-    extraArgs:
-      azure-use-workload-identity-extension: "true"
-      # azure-tenant-id: "5bd9cf2d-0241-4846-8d13-6ce59c689cc5"
-      azure-subscription-id: "2329876a-dd1e-4d17-9d7e-6504024dd500"
-      azure-resource-group: "dns-rg-30125"
+    extraVolumes:
+      - name: azure-config-file
+        secret:
+          secretName: external-dns-azure
+    extraVolumeMounts:
+      - name: azure-config-file
+        mountPath: /etc/kubernetes
+        readOnly: true
