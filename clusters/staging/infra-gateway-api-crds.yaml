@@ -8,5 +8,5 @@ spec:
   prune: false
   sourceRef:
     kind: GitRepository
-    name: flux-system           # <-- your main repo source name
+    name: flux-system          
   path: ./infrastructure/controllers/nginx-gateway-fabric/crds
