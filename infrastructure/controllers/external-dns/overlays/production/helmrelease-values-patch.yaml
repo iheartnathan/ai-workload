@@ -1,23 +1,19 @@
+---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: external-dns
   namespace: flux-system
 spec:
+  chart:
+    spec:
+      version: 1.18.0
   values:
     fullnameOverride: external-dns
     provider: azure
-    azure:
-      useWorkloadIdentityExtension: true
-      tenantId: 5bd9cf2d-0241-4846-8d13-6ce59c689cc5
-      subscriptionId: 2329876a-dd1e-4d17-9d7e-6504024dd500
-      resourceGroup: dns-rg-30125
     sources:
       - gateway-httproute
       - gateway-grpcroute
-      # - gateway-tcproute
-      # - gateway-tlsroute
-      # - gateway-udproute
     serviceAccount:
       annotations:
         azure.workload.identity/client-id: "060b62a0-250a-4e4a-a039-e53ea4f461b5"
@@ -27,5 +23,43 @@ spec:
     logLevel: debug
     domainFilters:
       - testhop.xyz
-    txtOwnerId: external-dns
-    txtPrefix: "_external-dns-"
+    txtOwnerId: external-dns-staging
+    extraVolumes:
+      - name: azure-config-file
+        secret:
+          secretName: external-dns-azure
+    extraVolumeMounts:
+      - name: azure-config-file
+        mountPath: /etc/kubernetes
+        readOnly: true
+---
+# helmrelase with an OCIrepository
+
+# apiVersion: helm.toolkit.fluxcd.io/v2
+# kind: HelmRelease
+# metadata:
+#   name: external-dns
+#   namespace: flux-system
+# spec:
+#   values:
+#     fullnameOverride: external-dns
+#     provider: azure
+#     azure:
+#       useWorkloadIdentityExtension: true
+#       tenantId: 5bd9cf2d-0241-4846-8d13-6ce59c689cc5
+#       subscriptionId: 2329876a-dd1e-4d17-9d7e-6504024dd500
+#       resourceGroup: dns-rg-30125
+#     sources:
+#       - gateway-httproute
+#       - gateway-grpcroute
+#     serviceAccount:
+#       annotations:
+#         azure.workload.identity/client-id: "060b62a0-250a-4e4a-a039-e53ea4f461b5"
+#         azure.workload.identity/use: "true"
+#     podLabels:
+#       azure.workload.identity/use: "true"
+#     logLevel: debug
+#     domainFilters:
+#       - testhop.xyz
+#     txtOwnerId: external-dns
+#     txtPrefix: "_external-dns-"
