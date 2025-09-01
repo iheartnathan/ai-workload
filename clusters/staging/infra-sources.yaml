@@ -10,7 +10,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system           
-  path: ./infrastructure/sources/infrastructure/overlays/staging
+  path: ./infrastructure/sources/infrastructure/oci/overlays/staging
 
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
